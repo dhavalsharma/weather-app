@@ -16,7 +16,7 @@
     "test-once": "tsc && karma start karma.conf.js --single-run",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "./node_modules/.bin/typings",
+    "typings": "typings",
     "webdriver:update": "webdriver-manager update"
   },
   "keywords": [],
