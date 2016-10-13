@@ -1,0 +1,53 @@
+<div class="container ">
+    <div id="user_input_id" *ngIf="!submitted" class="row ">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Please provide your location.</h1>                
+            <form  (ngSubmit)="onSubmit()" #disallowLocationForm="ngForm">
+                <div class="form-group">
+                    <label for="zipcode">Zipcode</label>
+                    <input type="text" class="form-control" id="zipcode" 
+                        [(ngModel)]="location.zip" name="zip" required #zip="ngModel">
+                    <div [hidden]="zip.valid || zip.pristine" 
+                        class="alert alert-danger">
+                        Zip is required
+                    </div>                        
+                </div>
+                <div class="form-group">
+                    <label for="countryList">Select Country</label>
+                    <select class="form-control" id="countryList" 
+                            [(ngModel)]="location.selected_country" name="country_code" required #country_code="ngModel">
+                        <option *ngFor="let p of countries" [ngValue]="p">{{p.name}}</option>
+                    </select>
+                    <div [hidden]="country_code.valid || country_code.pristine" 
+                        class="alert alert-danger">
+                        Country is required
+                    </div>                                        
+                </div>
+                
+                <button type="submit" class="btn btn-default" [disabled]="!disallowLocationForm.form.valid">Submit</button>                
+            </form>
+        </div>
+    </div>
+
+    <div id="weather_detail_id" *ngIf="submitted && weather && weather.cod == 200" class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Weather report for {{weather.name}}</h1>
+            <div class="row" *ngFor="let w of weather.weather">
+                <div class="col-md-1">
+                    <img src="http://openweathermap.org/img/w/{{w.icon}}.png">
+                </div>
+                <div class="col-md-2">{{w.main}}</div>
+                <div class="col-md-9">{{w.description}}</div>
+            </div>
+            <div class="row">
+                <p *ngIf="weather.main">The temperature is {{weather.main.temp}} kelvins.</p> 
+                <p *ngIf="weather.wind">The wind is moving at {{weather.wind.speed}} mps at {{weather.wind.deg}} degrees.</p>
+            </div>
+        </div>
+    </div>
+    <div id="weather_error_id" *ngIf="submitted && weather && weather.cod != 200" class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1 class="text-danger">Could not get weather details.</h1>
+        </div>
+    </div>                
+</div>
