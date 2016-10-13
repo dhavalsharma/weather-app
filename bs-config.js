@@ -13,6 +13,8 @@
  |
  */
 module.exports = {
+    "port": process.env.PORT || 3000,
+    /*
     "ui": {
         "port": 3001,
         "weinre": {
@@ -23,7 +25,6 @@ module.exports = {
     "watchOptions": {},
     "server": false,
     "proxy": false,
-    "port": process.env.PORT || 3000,
     "middleware": false,
     "serveStatic": [],
     "ghostMode": {
@@ -98,4 +99,5 @@ module.exports = {
         "gif": "img",
         "js": "script"
     }
+    */
 };
