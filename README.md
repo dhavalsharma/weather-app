@@ -6,6 +6,6 @@ component with mock datafor weather services.
 
 It is based on [angular.io quickstart](https://angular.io/docs/ts/latest/quickstart.html). Please visit their [github repo](https://github.com/angular/quickstart/blob/master/README.md) to get further instructions on building and running this application.
 
-Also, app is available on [heroku](https://stark-brushlands-33848.herokuapp.com/) to playaround for a while. 
+Also, app is available on [heroku](http://ds-weather-app.herokuapp.com/) to playaround for a while. 
 
 
