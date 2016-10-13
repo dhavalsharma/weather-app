@@ -10,6 +10,7 @@
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
     "lint": "tslint ./app/**/*.ts -t verbose",
     "lite": "lite-server",
+    "preinstall": "npm i typings -g",
     "postinstall": "typings install",
     "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
     "test-once": "tsc && karma start karma.conf.js --single-run",
@@ -58,5 +59,8 @@
     "protractor": "^3.3.0",
     "rimraf": "^2.5.4"
   },
-  "repository": {}
+  "repository": {},
+  "engines": {
+    "node": "6.3.0"
+  }
 }
